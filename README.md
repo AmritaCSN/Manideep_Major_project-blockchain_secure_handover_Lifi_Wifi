@@ -245,17 +245,17 @@ Single SDK entry point. `RequestHandover(src, tgt, RSSI, energy)` internally:
 
 All attacks are implemented in `fabric-attacks-v2.h`. Each class has `Start()`, `Stop()`, and `GetStats()` methods and accepts a `blockchainEnabled` flag. Six correctness fixes were applied during the development cycle (see file header for details).
 
-| ID | Class | Mechanism | BC Defense | Fix Applied |
-|----|-------|-----------|------------|-------------|
-| A1 | `LifiBlockageAttack` | 4-stage error decay; HO trigger at ε=0.15 | Registry-validated fallback | — |
-| A2 | `RogueApAttack` | Beacon every 1.024 s; spoofed RSSI=−40 dBm | Registry lookup fails (not registered) | — |
-| A3 | `MitmAttack` | 40% `RateErrorModel` on server-receive interface | Audit trail only (data-plane) | FIX: drop on `Get(1)` for FlowMonitor visibility |
-| A4 | `DowngradeAttack` | Temporarily revokes LegitWiFiAP | Registry revocation → DENIED | FIX 3 |
-| A5 | `ReplayAttack` | Captured nonce at t≈0; replayed at t=31 s (age=31 s > 30 s window) | Timestamp expiry + nonce registry | FIX 4 |
-| A6 | `SybilAttack` | 15 fake APs from AttackerOrg; rate limit=5/min | Rate limit + trust score=0.05 → S=0.525 < 0.55 | FIX 5 (metric separation) |
-| A7 | `DoSBlockchainAttack` | 300 real TX injected at 50/s via `RequestHandover()` | 35.9% latency increase; no service failure | FIX 2 (real TX injection) |
-| A8 | `ByzantinePeerAttack` | Peer-0 votes opposite to honest peers | 2-of-3 majority overrides dishonest vote | — |
-| A9 | `SessionHijackAttack` | ARP spoofing post-handover; P_detect=0.85 | Audit trail fingerprint mismatch → re-auth | FIX 6 (consistency) |
+| ID | Class | Mechanism | BC Defense | 
+|----|-------|-----------|------------|
+| A1 | `LifiBlockageAttack` | 4-stage error decay; HO trigger at ε=0.15 | Registry-validated fallback |
+| A2 | `RogueApAttack` | Beacon every 1.024 s; spoofed RSSI=−40 dBm | Registry lookup fails (not registered) |
+| A3 | `MitmAttack` | 40% `RateErrorModel` on server-receive interface | Audit trail only (data-plane) | 
+| A4 | `DowngradeAttack` | Temporarily revokes LegitWiFiAP | Registry revocation → DENIED |
+| A5 | `ReplayAttack` | Captured nonce at t≈0; replayed at t=31 s (age=31 s > 30 s window) | Timestamp expiry + nonce registry |
+| A6 | `SybilAttack` | 15 fake APs from AttackerOrg; rate limit=5/min | Rate limit + trust score=0.05 → S=0.525 < 0.55 |
+| A7 | `DoSBlockchainAttack` | 300 real TX injected at 50/s via `RequestHandover()` | 35.9% latency increase; no service failure |
+| A8 | `ByzantinePeerAttack` | Peer-0 votes opposite to honest peers | 2-of-3 majority overrides dishonest vote |
+| A9 | `SessionHijackAttack` | ARP spoofing post-handover; P_detect=0.85 | Audit trail fingerprint mismatch → re-auth |
 
 **Attack timing schedule (60 s simulation window):**
 
