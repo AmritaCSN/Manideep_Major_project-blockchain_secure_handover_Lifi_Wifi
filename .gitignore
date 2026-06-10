@@ -1,0 +1,170 @@
+# ============================================================
+# Project: LiFi-WiFi Blockchain Handover / ns-3 + Python Prototype
+# Purpose: Ignore generated, runtime, cache, build, and local files
+# ============================================================
+
+
+# ============================================================
+# Python cache / virtual environment
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+venv/
+env/
+.venv/
+ENV/
+pip-wheel-metadata/
+*.egg-info/
+
+
+# ============================================================
+# Python test / tool cache
+# ============================================================
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+
+# ============================================================
+# Flask / local runtime
+# ============================================================
+instance/
+.webassets-cache/
+
+
+# ============================================================
+# Runtime logs
+# ============================================================
+logs/
+*.log
+
+
+# ============================================================
+# SQLite / local blockchain ledger database
+# ============================================================
+ledger.db
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite-journal
+
+
+# ============================================================
+# ns-3 / C++ build artifacts
+# ============================================================
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.exe
+*.out
+
+
+# ============================================================
+# ns-3 generated simulation outputs
+# ============================================================
+results/
+*.pcap
+*.pcapng
+*.xml
+*.csv
+*.dat
+*.tr
+*.flowmon
+*.anim
+
+
+# ============================================================
+# NetAnim / simulation visualization outputs
+# ============================================================
+*.netanim
+*.nam
+
+
+# ============================================================
+# Temporary / backup files
+# ============================================================
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+
+# ============================================================
+# IDE / editor files
+# ============================================================
+.vscode/
+.idea/
+*.code-workspace
+
+
+# ============================================================
+# OS generated files
+# ============================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+
+# ============================================================
+# Environment / secrets
+# ============================================================
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+
+
+# ============================================================
+# Package / archive files
+# ============================================================
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+
+# ============================================================
+# Keep important source/config files tracked
+# ============================================================
+!requirements.txt
+!setup.sh
+!run_all.sh
+!CMakeLists.txt
+!README.md
+!LICENSE
