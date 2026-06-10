@@ -1,0 +1,7 @@
+metric,value
+avg_handover_latency_ms,5.000
+min_handover_latency_ms,5.000
+max_handover_latency_ms,5.000
+avg_energy_per_handover_mj,0.500
+total_energy_mj,1.000
+total_handovers,2

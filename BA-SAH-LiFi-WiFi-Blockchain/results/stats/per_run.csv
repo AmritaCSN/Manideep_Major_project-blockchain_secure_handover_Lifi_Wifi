@@ -1,0 +1,1 @@
+scenario,seed,flow,txPackets,rxPackets,lostPackets,packetLoss%,avgDelayMs,jitterMs,throughputMbps,bcApproved,bcDenied,avgBcLatencyMs,totalEnergyMj

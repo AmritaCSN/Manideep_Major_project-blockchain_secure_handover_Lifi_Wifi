@@ -1,0 +1,10 @@
+attack,attempts,blocked,handover_succeeded,registration_succeeded,latencyImpactMs,packetLoss%,defenseResult
+LiFi_Blockage,1,0,1,0,0.00,0.00,FULLY_MITIGATED
+Rogue_AP,5,5,0,0,0.00,0.00,FULLY_MITIGATED
+MITM,1,0,1,0,50.00,40.00,PARTIAL
+Downgrade,1,1,0,0,0.00,0.00,FULLY_MITIGATED
+Replay_Attack,2,1,1,0,0.00,0.00,FULLY_MITIGATED
+Sybil_Attack,15,15,0,5,0.00,0.00,FULLY_MITIGATED
+DoS_Blockchain,300,0,0,0,149.88,0.00,PARTIAL
+Byzantine_Peer,1,1,0,0,0.00,0.00,FULLY_MITIGATED
+Session_Hijack,1,1,0,0,0.00,0.00,FULLY_MITIGATED

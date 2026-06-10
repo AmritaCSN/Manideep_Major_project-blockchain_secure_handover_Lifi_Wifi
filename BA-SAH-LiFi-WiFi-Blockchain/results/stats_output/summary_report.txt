@@ -1,0 +1,45 @@
+Security-Aware Energy Optimization in Hybrid LiFi-WiFi Networks
+Statistical Summary Report
+============================================================
+
+Results directory: /home/kali/ns-3-dev/results
+Runs per scenario: 10
+Scenarios: 0=baseline, 1=attack-no-defense, 2=attack-with-defense
+
+Network Performance
+------------------------------------------------------------
+
+Scenario 0 — baseline
+  Throughput: 0.842 ± 0.000 (95% CI ±0.000) Mbps
+  E2E delay: 6.091 ± 0.001 (95% CI ±0.001) ms
+  Packet loss: 0.000 ± 0.000 (95% CI ±0.000) %
+
+Scenario 1 — attack_no_bc
+  Throughput: 0.795 ± 0.001 (95% CI ±0.000) Mbps
+  E2E delay: 6.091 ± 0.001 (95% CI ±0.001) ms
+  Packet loss: 5.572 ± 0.067 (95% CI ±0.048) %
+
+Scenario 2 — attack_with_bc
+  Throughput: 0.796 ± 0.002 (95% CI ±0.002) Mbps
+  E2E delay: 6.091 ± 0.001 (95% CI ±0.001) ms
+  Packet loss: 5.391 ± 0.263 (95% CI ±0.188) %
+
+Blockchain / Energy Performance
+------------------------------------------------------------
+HO latency without BC: 5.00 ± 0.00 ms (95% CI ±0.00 ms)
+HO latency with BC: 187.38 ± 0.00 ms (95% CI ±0.00 ms)
+BC overhead: 182.38 ms avg
+Energy saving: 72.5% (4898.0 mJ -> 1345.2 mJ)
+
+Attack Evaluation
+------------------------------------------------------------
+Attacks fully mitigated: 7/9
+LiFi_Blockage: blocked=0.00, handover_success=1.00, defense=FULLY_MITIGATED
+Rogue_AP: blocked=5.00, handover_success=0.00, defense=FULLY_MITIGATED
+MITM: blocked=0.00, handover_success=1.00, defense=PARTIAL
+Downgrade: blocked=1.00, handover_success=0.00, defense=FULLY_MITIGATED
+Replay_Attack: blocked=1.00, handover_success=1.00, defense=FULLY_MITIGATED
+Sybil_Attack: blocked=15.00, handover_success=0.00, defense=FULLY_MITIGATED
+DoS_Blockchain: blocked=0.00, handover_success=0.00, defense=PARTIAL
+Byzantine_Peer: blocked=1.00, handover_success=0.00, defense=FULLY_MITIGATED
+Session_Hijack: blocked=1.00, handover_success=0.00, defense=FULLY_MITIGATED

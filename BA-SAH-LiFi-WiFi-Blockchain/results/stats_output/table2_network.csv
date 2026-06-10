@@ -1,0 +1,14 @@
+metric,scenario,mean,stddev,ci95_halfwidth,unit,n_runs
+Throughput,baseline,0.8416,0.0000,0.0000,Mbps,10
+Throughput,attack_no_bc,0.7947,0.0006,0.0004,Mbps,10
+Throughput,attack_with_bc,0.7962,0.0022,0.0016,Mbps,10
+E2E delay,baseline,6.0910,0.0009,0.0006,ms,10
+E2E delay,attack_no_bc,6.0910,0.0009,0.0007,ms,10
+E2E delay,attack_with_bc,6.0910,0.0009,0.0007,ms,10
+Packet loss,baseline,0.0000,0.0000,0.0000,%,10
+Packet loss,attack_no_bc,5.5724,0.0669,0.0479,%,10
+Packet loss,attack_with_bc,5.3914,0.2630,0.1881,%,10
+HO latency no-BC,comparison,5.0000,0.0000,0.0000,ms,10
+HO latency with-BC,comparison,187.3800,0.0000,0.0000,ms,10
+Total energy no-BC,comparison,4898.0000,0.0000,0.0000,mJ,10
+Total energy with-BC,comparison,1345.2000,0.0000,0.0000,mJ,10

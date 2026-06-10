@@ -1,0 +1,11 @@
+0s : Network: traffic always routed via attacker node
+0s : Network: attacker passive until Attack 3 activates drop model
+0s : === SIMULATION START  scenario=baseline  BC=OFF  runId=9  simTime=60.000000s ===
+0s : Baseline: no attacks scheduled — measuring clean performance
+5s : HANDOVER REQUEST  LiFiAP -> LegitWiFiAP  [baseline measurement]
+5s : HANDOVER APPROVED_INSECURE  score=1.000000  latency=5.000000ms  energy=0.500000mJ
+5.005s : HANDOVER: medium=WiFi
+10s : HANDOVER REQUEST  LegitWiFiAP -> LiFiAP  [return to LiFi]
+10s : HANDOVER APPROVED_INSECURE  score=1.000000  latency=5.000000ms  energy=0.500000mJ
+10.005s : HANDOVER: medium=LiFi
+60s : === SIMULATION COMPLETE ===

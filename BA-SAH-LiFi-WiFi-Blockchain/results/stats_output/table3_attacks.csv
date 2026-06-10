@@ -1,0 +1,10 @@
+attack,mean_blocked,stddev_blocked,mean_ho_succ,mean_latency_impact_ms,mean_packet_loss_pct,defense_result,n_runs
+LiFi_Blockage,0.00,0.00,1.00,0.00,0.00,FULLY_MITIGATED,10
+Rogue_AP,5.00,0.00,0.00,0.00,0.00,FULLY_MITIGATED,10
+MITM,0.00,0.00,1.00,50.00,40.00,PARTIAL,10
+Downgrade,1.00,0.00,0.00,0.00,0.00,FULLY_MITIGATED,10
+Replay_Attack,1.00,0.00,1.00,0.00,0.00,FULLY_MITIGATED,10
+Sybil_Attack,15.00,0.00,0.00,0.00,0.00,FULLY_MITIGATED,10
+DoS_Blockchain,0.00,0.00,0.00,149.88,0.00,PARTIAL,10
+Byzantine_Peer,1.00,0.00,0.00,0.00,0.00,FULLY_MITIGATED,10
+Session_Hijack,1.00,0.00,0.00,0.00,0.00,FULLY_MITIGATED,10

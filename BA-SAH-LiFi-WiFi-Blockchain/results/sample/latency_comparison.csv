@@ -1,0 +1,5 @@
+scenario,handoverLatencyMs
+Without_Blockchain,5.00
+With_Blockchain,187.38
+
+simTime,bcLatencyMs,decision

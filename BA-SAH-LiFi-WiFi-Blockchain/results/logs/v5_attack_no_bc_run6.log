@@ -1,0 +1,24 @@
+0s : Network: traffic always routed via attacker node
+0s : Network: attacker passive until Attack 3 activates drop model
+0s : === SIMULATION START  scenario=attack_no_bc  BC=OFF  runId=6  simTime=60.000000s ===
+5s : === ATTACK 1 START: LiFi Blockage ===
+10s : === ATTACK 1 STOP ===
+12s : === ATTACK 2 START: Rogue AP ===
+17s : === ATTACK 2 STOP ===
+19s : === ATTACK 3 START: MITM (40% drop) ===
+24s : === ATTACK 3 STOP ===
+26s : === ATTACK 4 START: Downgrade ===
+29s : === ATTACK 4 STOP ===
+31s : === ATTACK 5 START: Replay ===
+34s : === ATTACK 5 STOP ===
+36s : === ATTACK 6 START: Sybil ===
+39s : === ATTACK 6 STOP ===
+41s : === ATTACK 7 START: DoS-BC ===
+44s : === ATTACK 7: measuring latency under DoS ===
+44s : DoS latency=5.000000ms
+47s : === ATTACK 7 STOP ===
+49s : === ATTACK 8 START: Byzantine ===
+52s : === ATTACK 8 STOP ===
+54s : === ATTACK 9 START: Session Hijack ===
+58s : === ATTACK 9 STOP ===
+60s : === SIMULATION COMPLETE ===
