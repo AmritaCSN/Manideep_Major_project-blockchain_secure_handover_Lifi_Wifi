@@ -104,11 +104,7 @@ BA-SAH-LiFi-WiFi-Blockchain/
 ├── README.md                         # This file
 ├── .gitignore                        # Excludes runtime/build artifacts
 ├── LICENSE                           # MIT License
-│
-├── docs/
-│   ├── architecture_paper.png        # System architecture from research paper
-│   └── system_overview.md            # Detailed module-wise documentation
-│
+|
 ├── simulation/                       # ── ns-3 C++ Simulation Layer ──────────
 │   ├── CMakeLists.txt                # ns-3 build configuration (v5)
 │   ├── hybrid_full_v5.cc             # Main simulation driver
