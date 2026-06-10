@@ -1,0 +1,189 @@
+#!/bin/bash
+# ============================================================
+# run_experiments.sh
+# Automated full experiment runner for hybrid_full_v5
+#
+# Scenarios:
+#   0 = Baseline: no attacks, blockchain OFF
+#   1 = Attack scenario, blockchain OFF
+#   2 = Attack scenario, blockchain ON
+#
+# Usage:
+#   chmod +x run_experiments.sh
+#   ./run_experiments.sh
+# ============================================================
+
+set -e
+
+EXEC_NAME="hybrid_full_v5"
+SIM_TIME=60
+RUNS=10
+
+echo ""
+echo "============================================================"
+echo " Blockchain-Assisted LiFi-WiFi Handover Experiments"
+echo " Automated Full Runner"
+echo "============================================================"
+echo ""
+
+# ------------------------------------------------------------
+# Locate ns-3 runner
+# ------------------------------------------------------------
+if [ -f "./ns3" ]; then
+    NS3="./ns3"
+elif [ -f "../../ns3" ]; then
+    NS3="../../ns3"
+elif [ -f "../../../ns3" ]; then
+    NS3="../../../ns3"
+else
+    echo "[ERROR] Could not find ns-3 runner script."
+    echo "Run this script from the ns-3 root directory or scratch project folder."
+    exit 1
+fi
+
+echo "[INFO] Using ns-3 runner: $NS3"
+
+# ------------------------------------------------------------
+# Prepare output directories
+# ------------------------------------------------------------
+echo "[INFO] Creating result directories..."
+
+mkdir -p results
+mkdir -p results/xml
+mkdir -p results/pcap
+mkdir -p results/logs
+mkdir -p results/csv
+mkdir -p results/summary
+
+# ------------------------------------------------------------
+# Build ns-3 target
+# ------------------------------------------------------------
+echo ""
+echo "============================================================"
+echo "[STEP 1] Building $EXEC_NAME"
+echo "============================================================"
+
+$NS3 build
+
+echo "[OK] Build completed."
+
+# ------------------------------------------------------------
+# Scenario names
+# ------------------------------------------------------------
+get_scenario_name() {
+    case "$1" in
+        0) echo "baseline" ;;
+        1) echo "attack_no_bc" ;;
+        2) echo "attack_with_bc" ;;
+        *) echo "unknown" ;;
+    esac
+}
+
+# ------------------------------------------------------------
+# Run all scenarios for all run IDs
+# ------------------------------------------------------------
+echo ""
+echo "============================================================"
+echo "[STEP 2] Running experiments"
+echo "============================================================"
+
+for RUN_ID in $(seq 1 $RUNS); do
+    echo ""
+    echo "------------------------------------------------------------"
+    echo " Statistical Run: $RUN_ID / $RUNS"
+    echo "------------------------------------------------------------"
+
+    for SCENARIO in 0 1 2; do
+        SCENARIO_NAME=$(get_scenario_name "$SCENARIO")
+        LOG_FILE="results/logs/v5_${SCENARIO_NAME}_run${RUN_ID}.log"
+
+        echo ""
+        echo "[RUN] scenario=$SCENARIO_NAME runId=$RUN_ID simTime=${SIM_TIME}s"
+        echo "[LOG] $LOG_FILE"
+
+        $NS3 run "$EXEC_NAME --scenario=$SCENARIO --simTime=$SIM_TIME --runId=$RUN_ID" \
+            > "$LOG_FILE" 2>&1
+
+        echo "[OK] Completed scenario=$SCENARIO_NAME runId=$RUN_ID"
+
+        # Preserve overwritten CSV outputs after each run
+        if [ -f results/fabric_metrics.csv ]; then
+            cp results/fabric_metrics.csv "results/csv/fabric_metrics_${SCENARIO_NAME}_run${RUN_ID}.csv"
+        fi
+
+        if [ -f results/latency_comparison.csv ]; then
+            cp results/latency_comparison.csv "results/csv/latency_comparison_${SCENARIO_NAME}_run${RUN_ID}.csv"
+        fi
+
+        if [ -f results/energy_comparison.csv ]; then
+            cp results/energy_comparison.csv "results/csv/energy_comparison_${SCENARIO_NAME}_run${RUN_ID}.csv"
+        fi
+
+        if [ -f results/attack_summary.csv ]; then
+            cp results/attack_summary.csv "results/csv/attack_summary_${SCENARIO_NAME}_run${RUN_ID}.csv"
+        fi
+
+        if [ -f results/baseline_measured.csv ]; then
+            cp results/baseline_measured.csv "results/csv/baseline_measured_run${RUN_ID}.csv"
+        fi
+    done
+done
+
+# ------------------------------------------------------------
+# Generate experiment index
+# ------------------------------------------------------------
+echo ""
+echo "============================================================"
+echo "[STEP 3] Creating experiment summary index"
+echo "============================================================"
+
+SUMMARY_FILE="results/summary/experiment_index.txt"
+
+{
+    echo "Blockchain-Assisted LiFi-WiFi Handover Experiment Index"
+    echo "Generated on: $(date)"
+    echo ""
+    echo "Executable: $EXEC_NAME"
+    echo "Simulation time: ${SIM_TIME}s"
+    echo "Runs per scenario: $RUNS"
+    echo ""
+    echo "Scenarios:"
+    echo "  0 = baseline"
+    echo "  1 = attack_no_bc"
+    echo "  2 = attack_with_bc"
+    echo ""
+    echo "Important output folders:"
+    echo "  results/xml/      FlowMonitor XML and NetAnim XML files"
+    echo "  results/pcap/     PCAP traces"
+    echo "  results/logs/     Console logs for each run"
+    echo "  results/csv/      Preserved CSV files for each run"
+    echo ""
+    echo "Generated logs:"
+    ls results/logs 2>/dev/null || true
+    echo ""
+    echo "Generated CSV files:"
+    ls results/csv 2>/dev/null || true
+    echo ""
+    echo "Generated XML files:"
+    ls results/xml 2>/dev/null || true
+} > "$SUMMARY_FILE"
+
+echo "[OK] Summary written to $SUMMARY_FILE"
+
+# ------------------------------------------------------------
+# Final message
+# ------------------------------------------------------------
+echo ""
+echo "============================================================"
+echo " All experiments completed successfully."
+echo "============================================================"
+echo ""
+echo "Results directory:"
+echo "  results/"
+echo ""
+echo "Check:"
+echo "  results/logs/"
+echo "  results/xml/"
+echo "  results/csv/"
+echo "  results/summary/experiment_index.txt"
+echo ""
