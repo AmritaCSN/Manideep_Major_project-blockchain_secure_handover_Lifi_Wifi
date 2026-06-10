@@ -6,9 +6,6 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 [![Institution](https://img.shields.io/badge/Institution-Amrita%20Vishwa%20Vidyapeetham-purple)](https://www.amrita.edu/)
 
-> **Authors:** Garrepelly Manideep · Dr. Sriram Sankaran  
-> **Affiliation:** Center for Cybersecurity Systems and Networks, Amrita Vishwa Vidyapeetham, Amritapuri, India  
-> **Contact:** `am.sc.p2csn24004@am.students.amrita.edu` · `srirams@am.amrita.edu`
 
 ---
 
