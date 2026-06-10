@@ -3,12 +3,6 @@
 [![ns-3](https://img.shields.io/badge/Simulator-ns--3%20(3--dev)-blue)](https://www.nsnam.org/)
 [![Python](https://img.shields.io/badge/Python-3.11-green)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/Hardware-Raspberry%20Pi%204-red)](https://www.raspberrypi.com/)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
-[![Institution](https://img.shields.io/badge/Institution-Amrita%20Vishwa%20Vidyapeetham-purple)](https://www.amrita.edu/)
-
-> **Authors:** Garrepelly Manideep · Dr. Sriram Sankaran  
-> **Affiliation:** Center for Cybersecurity Systems and Networks, Amrita Vishwa Vidyapeetham, Amritapuri, India  
-> **Contact:** `am.sc.p2csn24004@am.students.amrita.edu` · `srirams@am.amrita.edu`
 
 ---
 
@@ -103,7 +97,6 @@ BA-SAH-LiFi-WiFi-Blockchain/
 │
 ├── README.md                         # This file
 ├── .gitignore                        # Excludes runtime/build artifacts
-├── LICENSE                           # MIT License
 │
 ├── simulation/                       # ── ns-3 C++ Simulation Layer ──────────
 │   ├── CMakeLists.txt                # ns-3 build configuration (v5)
