@@ -274,7 +274,7 @@ The prototype mirrors the simulation protocol in Python, running as five REST-co
 | `seen_nonces` | 30-second rolling window replay protection |
 | `rate_log` | Per-org registration rate limiting (max 5/min) |
 
-Configuration (extracted from source):
+Configuration :
 ```python
 W_TRUST          = 0.50
 W_RSSI           = 0.30
