@@ -35,7 +35,7 @@ This repository implements and validates **BA-SAH** (Blockchain-Assisted Securit
 
 ## Key Contributions
 
-1. **BA-SAH Framework Design.** To the best of our knowledge, the first permissioned-blockchain framework targeting security-aware vertical handover in hybrid LiFi–WiFi networks. BA-SAH integrates three smart contracts — AP Registry, Handover Policy, and Energy Accounting — with a Raft-based ordering service modelled on Hyperledger Fabric.
+1. **BA-SAH Framework Design.** The permissioned-blockchain framework targeting security-aware vertical handover in hybrid LiFi–WiFi networks. BA-SAH integrates three smart contracts — AP Registry, Handover Policy, and Energy Accounting — with a Raft-based ordering service modelled on Hyperledger Fabric.
 
 2. **Multi-Factor Handover Decision Policy.** A formally derived composite scoring function:
    ```
